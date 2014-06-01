@@ -9,7 +9,8 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <style>
       body {
-        padding-top: 60px; 
+        padding-top: 60px;
+        background-image: url(/img/congruent_pentagon.png); 
       }
       
       #Inventory li {
@@ -35,14 +36,15 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">Inventory</a>
+           <a class="brand" href="/new">Ye Ole' Food Pantry</a> <span class="caret"></span>
+          </a>
         </div>
       </div>
     </div>
 
     <div class="container">
 
-      <h1><%= @title %></h1>
+      <h3><%= @title %></h1>
       <%= yield %>
 
     </div>

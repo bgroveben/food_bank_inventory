@@ -1,12 +1,38 @@
 <ul id="todo-list" class="unstyled">
+	
+
+	<div class="panel-heading"><h2>Items that you want to donate:</h2></div>
+	
+	<table class ="table">
+	
+	<tr>
+		<th>Items</th>
+		<th>Quantity</th>
+	</tr>
+    
     <% @items.each do |item| %>
+      
       <li id="<%= item[:id] %>">
-        <span class="item"><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %></span>
+      	<br>
+        <span class="item"> 
+       	<tr>
+       		<td><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %></td>
+        	<td><%= item[:done] ? "<del>#{item[:quantity]}</del>" : item[:quantity] %></td>
+       </span>
+        
         <span class="pull-right">
-          <a href="#" class="btn done"><%= item[:done] ? "Not done" : "Done" %></a>
-          <a href="/delete/<%= item[:id] %>" class="btn btn-danger">Delete</a>
+        
+          <td>
+          <a href="/delete/<%= item[:id] %>" class="btn btn-danger">Delete</a></td>
+      	</br>
+      	</tr>
         </span>
       </li>
     <% end %>
 </ul>
-<a href="/new" class="btn btn-primary">Add request</a>
+</table>
+<br>
+<center>
+<a href="/new" class="btn btn-primary">Do you wish to donate more?</a>
+<a href="/confirm" class="btn btn-primary">Checkout?</a>
+</center>

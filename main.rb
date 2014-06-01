@@ -3,10 +3,12 @@ require 'data_mapper'
 require 'slim'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/food_bank_inventory.db")
+
 class Item
   include DataMapper::Resource
   property :id, Serial
   property :content, Text, :required => true
+  property :quantity, Text, :required => true
   property :done, Boolean, :required => true, :default => false
   property :created, DateTime
 end
@@ -19,22 +21,13 @@ get '/?' do
 end
 
 get '/new/?' do
-  @title = "Add request"
+  @title = "Hello world, this is Ye Ole' Food Pantry!"
   erb :new
 end
 
 post '/new/?' do
-  Item.create(:content => params[:content], :created => Time.now)
+  Item.create(:content => params[:content], :quantity => params[:quantity], :created => Time.now)
   redirect '/'
-end
-
-post '/done/?' do
-  item = Item.first(:id => params[:id])
-  item.done = !item.done
-  item.save
-  content_type 'application/json'
-  value = item.done ? 'done' : 'not done'
-  { :id => params[:id], :status => value }.to_json
 end
 
 get '/delete/:id/?' do
@@ -68,5 +61,10 @@ end
 get '/*' do
 	status 404
 	'not found'
+end
+
+get '/confirm' do
+  session[:message] = 'Hello World!'
+  redirect to('/views/confirm')
 end
 

@@ -1,0 +1,23 @@
+<p>Are you sure you want to donate the following?</p>
+<blockquote><p><%= @item.content %></p></blockquote>
+
+<table class ="table">
+	
+	<tr>
+		<th>Items</th>
+		<th>Quantity</th>
+	</tr>
+    
+    <% @items.each do |item| %>
+      
+      <li id="<%= item[:id] %>">
+      	<br>
+        <span class="item"> 
+       	<tr>
+       		<td><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %></td>
+        	<td><%= item[:done] ? "<del>#{item[:quantity]}</del>" : item[:quantity] %></td>
+       </span>
+      </li>
+
+    <% end %>
+ </table>
