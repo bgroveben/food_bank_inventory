@@ -37,7 +37,7 @@ get '/confirm2' do
 end
 
 get '/ph' do
-  @items = Item.all(:order => :created.asc)
+  @items = Item.all(:order => :created.desc)
   erb :ph
 end  
 
