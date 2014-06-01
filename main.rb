@@ -41,6 +41,15 @@ get '/ph' do
   erb :ph
 end  
 
+post '/ph' do
+  item = Item.get(params[:id])
+  item_quan = item.quantity - params[:amount].to_i
+  "You will be taking #{params[:amount]} of our #{item.content} leaving us with #{item_quan}."
+  item.update(quantity: item_quan)
+  redirect '/'
+end
+
+
 post '/confirm2' do
   Item.create(content: params[:content], quantity: params[:quantity], created: Time.now)
   redirect '/'
