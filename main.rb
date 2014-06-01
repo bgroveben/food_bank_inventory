@@ -8,7 +8,7 @@ class Item
   include DataMapper::Resource
   property :id, Serial
   property :content, Text, :required => true
-  property :quantity, Text, :required => true
+  property :quantity, Integer, :required => true
   property :done, Boolean, :required => true, :default => false
   property :created, DateTime
 end
@@ -29,6 +29,22 @@ post '/new/?' do
   Item.create(:content => params[:content], :quantity => params[:quantity], :created => Time.now)
   redirect '/'
 end
+
+get '/confirm2' do
+  @item = Item.new(content: params[:content], quantity: params[:quantity])
+  erb :confirm2
+end
+
+get '/ph' do
+  @item = Item.new(content: params[:content], quantity: params[:quantity])
+  erb :confirm2
+end  
+
+post '/confirm2' do
+  Item.create(content: params[:content], quantity: params[:quantity], created: Time.now)
+  redirect '/'
+end
+
 
 get '/delete/:id/?' do
   @item = Item.first(:id => params[:id])
@@ -58,13 +74,16 @@ post '/form' do
 	"You said '#{params[:message]}'"
 end
 
+get '/confirm' do
+  #session[:message] = 'Hello World!'
+  @item = Item.first
+  erb :confirm
+end
+
 get '/*' do
 	status 404
 	'not found'
 end
 
-get '/confirm' do
-  session[:message] = 'Hello World!'
-  redirect to('/views/confirm')
-end
+
 
