@@ -1,0 +1,24 @@
+<h2>Take some stuff...</h2>
+	<table class ="table">
+		<tr>
+			<th>&nbsp</th>
+			<th>Items</th>
+			<th>Quantity</th>
+			<th>Amount needed</th>
+			<th>&nbsp</th>
+		</tr>
+
+		<% @items.each do |item| %>
+	  <span class="item"> 
+	 	<tr>
+	 		<form action="/ph" method="post">
+		 		<td><input type="checkbox" value="<%= item[:id] %>" ></td>
+		 		<td><%= item[:content] %></td>
+		  	<td><%= item[:quantity] %></td>
+		  	<td><input type="number" placeholder"0" name="amount"></td>
+		  	<td><input type="submit" value="This is mine now!"></td>
+	  	</form>
+	  </tr>
+	  </span>
+	  <% end %>
+	</table>

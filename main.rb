@@ -36,8 +36,8 @@ get '/confirm2' do
 end
 
 get '/ph' do
-  @item = Item.new(content: params[:content], quantity: params[:quantity])
-  erb :confirm2
+  @items = Item.all(:order => :created.asc)
+  erb :ph
 end  
 
 post '/confirm2' do

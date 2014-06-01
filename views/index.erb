@@ -1,7 +1,4 @@
-<ul id="todo-list" class="unstyled">
-	
-
-	<div class="panel-heading"><h2>Items that you want to donate:</h2></div>
+<div class="panel-heading"><h2>Items that you want to donate:</h2></div>
 	
 	<table class ="table">
 	
@@ -11,9 +8,7 @@
 	</tr>
     
     <% @items.each do |item| %>
-      
-      <li id="<%= item[:id] %>">
-      	<br>
+
         <span class="item"> 
        	<tr>
        		<td><%= item[:content] %></td>
@@ -24,15 +19,11 @@
         
           <td>
           <a href="/delete/<%= item[:id] %>" class="btn btn-danger">Delete</a></td>
-      	</br>
       	</tr>
         </span>
-      </li>
     <% end %>
-</ul>
 </table>
-<br>
 <center>
 <a href="/new" class="btn btn-primary">Do you wish to donate more?</a>
-<a href="/confirm" class="btn btn-primary">Checkout?</a>
+<a href="/ph" class="btn btn-primary">Checkout?</a>
 </center>
