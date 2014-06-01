@@ -5,6 +5,9 @@ gem "sinatra"
 gem "sqlite3"
 gem "activerecord"
 gem "sinatra-activerecord"
+gem "datamapper"
+gem "slim"
+gem "dm-sqlite-adapter"
  
 group :development do
   gem "shotgun"
