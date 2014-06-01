@@ -12,7 +12,8 @@ class Item
   property :done, Boolean, :required => true, :default => false
   property :created, DateTime
 end
-DataMapper.finalize.auto_upgrade!
+DataMapper.finalize
+Item.auto_upgrade!
 
 get '/?' do
   @items = Item.all(:order => :created.desc)
