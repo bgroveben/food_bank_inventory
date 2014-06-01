@@ -2,8 +2,12 @@ require 'sinatra'
 require 'data_mapper'
 require 'slim'
 
+<<<<<<< HEAD
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/food_bank_inventory.db")
 
+=======
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/inventory.db")
+>>>>>>> 980863007c2161099b8013a013e7b87b6392395c
 class Item
   include DataMapper::Resource
   property :id, Serial
