@@ -7,8 +7,13 @@
 
 <form action="/new" class="form-inline" method="POST">
   <input type="text" placeholder="Donate item" name="content">
-  <input type="text" placeholder="How many items?" name="quantity">
+  <input type="number" placeholder="How many items?" name="quantity">
 
-  <input type="text" placeholder="Add Item" name="content"> 
-  <button type="submit" class="btn">Post</button>
+  <button type="submit" class="btn">Confirm Donation</button>
+</form>
+
+<form action="/confirm2" class="form-confirm2" method="GET">
+	<input type="text" placeholder="Donation item" name="content">
+	<input type="number" placeholder="Amount" name="quantity">
+	<button type="submit" class="btn">Confirm Page 2</button>
 </form>

@@ -1,0 +1,8 @@
+Would you like to donate: <br>
+
+<form action="/confirm2" method="post">
+	<input type="checkbox" name="content" value="<%= @item[:content]%>" > <%= @item[:content] %> 
+	<input type="checkbox" name="quantity" value="<%= @item[:quantity]%>" > <%= @item[:quantity] %>
+	<br>
+	<input type="submit" value="Confirm Order">
+</form>
